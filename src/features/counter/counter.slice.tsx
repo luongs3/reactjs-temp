@@ -1,4 +1,6 @@
-import { createReducer, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createReducer, createSlice, PayloadAction, ThunkDispatch } from "@reduxjs/toolkit";
+import { DispatchProp } from "react-redux";
+import { RootState } from "../store";
 
 interface counterState {
   counter: number
@@ -26,4 +28,10 @@ export const counterSlice = createSlice({
 const counterReducer = counterSlice.reducer
 
 export const { increase, decrease, changeByAmount } = counterSlice.actions
+export const increseAsync = (amount: number) => (dispatch: ThunkDispatch<any, any, any>) => {
+  setTimeout(() => {
+    dispatch(changeByAmount(amount))
+  })
+}
+export const selectCounter = (state: RootState) => state.counter.counter
 export default counterReducer
