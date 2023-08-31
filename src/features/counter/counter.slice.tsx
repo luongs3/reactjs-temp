@@ -1,12 +1,11 @@
-import { createReducer, createSlice, PayloadAction, ThunkDispatch } from "@reduxjs/toolkit";
-import { DispatchProp } from "react-redux";
+import { createSlice, PayloadAction, ThunkDispatch } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 
 interface counterState {
   counter: number
 }
 
-const initialState :counterState = {
+const initialState: counterState = {
   counter: 0,
 }
 

@@ -7,16 +7,26 @@ import reportWebVitals from './reportWebVitals';
 import router from "./features/router";
 import App from "./App";
 import { store } from "./features/store";
+import { createTheme, ThemeProvider } from "@mui/material";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+const darkTheme = createTheme({
+  palette: {
+    mode: "light"
+  }
+})
+
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App>
-        <RouterProvider router={router} />
-      </App>
+      <ThemeProvider theme={darkTheme}>
+        <App>
+          <RouterProvider router={router} />
+        </App>
+      </ThemeProvider>
     </Provider>
   </React.StrictMode>
 );

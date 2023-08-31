@@ -1,12 +1,11 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { EndpointBuilder } from "@reduxjs/toolkit/dist/query/endpointDefinitions";
 
 const DOG_API_KEY = 'live_KhCE9srgKY72tPtWCDSzb08PdXrdNXa08T7Y3tHY8Qvv13UVarPZkfm4eQbijIVd'
 
 interface Breed {
   id: string
   name: string
-  image : {
+  image: {
     url: string
   }
 }
@@ -22,7 +21,7 @@ export const apiSlice = createApi({
   }),
   endpoints(builder) {
     return {
-      getBreeds: builder.query<Breed[], number|void>({
+      getBreeds: builder.query<Breed[], number | void>({
         query(limit = 10) {
           return `/breeds?limit=${limit}`
         }
